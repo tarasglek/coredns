@@ -51,7 +51,7 @@ cache [TTL] [ZONES...] {
 
 ## Capacity and Eviction
 
-If **CAPACITY** is not specified, the default cache size is 10,000 per cache.
+If **CAPACITY** is not specified, the default cache size is 10,000 per cache. The minimum allowed cache size is 1024.
 
 Eviction is done per shard - i.e. when a shard reaches capacity, items are evicted from that shard.  Since shards don't fill up perfectly evenly, evictions will occur before the entire cache reaches full capacity. Each shard capacity is equal to the total cache size / number of shards (256). Eviction is random, not TTL based.  Entries with 0 TTL will remain in the cache until randomly evicted when the shard reaches capacity.
 
